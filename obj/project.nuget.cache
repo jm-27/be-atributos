@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wjqrRIp19wyrvf/s4DVJUXaSnkrXO4EgDCEnX35tiz9E20sk/7ZUMOF3pZ4BS9s8GhtHOO3a/On9ZWNpsoJnzw==",
+  "dgSpecHash": "YzvDEp6NW3Z/2xycw+zt2Hd+imZJYTyVa7e/WuWIFCTDLBTbwNCegMiWumwpjOZDfcn39l1JHx0dhxEdLAvgWA==",
   "success": true,
-  "projectFilePath": "C:\\Proyectos\\AE\\be-atributos\\be-atributos.csproj",
+  "projectFilePath": "C:\\Proyectos\\AE\\be-atributos\\be-atributos\\be-atributos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jm\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\jm\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

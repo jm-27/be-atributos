@@ -18,12 +18,12 @@ namespace be_atributos.Controllers
         }
 
 
-        [HttpGet("",Name ="groups")]
+        [HttpGet]
         public async Task<ActionResult<List<GroupOutboundDTO>>> getGroups()
         {
             var groupsResult =  await dbContext.Groups.ToListAsync();
-            var groupsOutboundDTO = this.mapper.Map<List<GroupOutboundDTO>>(groupsResult);
-            return CreatedAtRoute("groups", groupsOutboundDTO);
+            var groupsOutboundDTO = this.mapper.Map<List<GroupOutboundDTO>>(groupsResult);            
+            return Ok(groupsOutboundDTO);
         }
 
 
