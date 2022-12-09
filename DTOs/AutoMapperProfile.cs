@@ -9,6 +9,7 @@ namespace be_atributos.DTOs
         
             CreateMap<Group, GroupOutboundDTO>();
             CreateMap<TeacherInboundDTO, Teacher>();
+            CreateMap<GroupInboundDTO, Group>();
 
         }
     }

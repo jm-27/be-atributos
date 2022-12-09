@@ -3,6 +3,7 @@ using be_atributos.DTOs;
 using be_atributos.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace be_atributos.Controllers
 {
@@ -24,6 +25,16 @@ namespace be_atributos.Controllers
             var groupsResult =  await dbContext.Groups.ToListAsync();
             var groupsOutboundDTO = this.mapper.Map<List<GroupOutboundDTO>>(groupsResult);            
             return Ok(groupsOutboundDTO);
+        }
+
+        [HttpPost]
+        [Route("add",Name ="addGroup")]
+        public async Task<ActionResult<Group>> postGroup(GroupInboundDTO groupInboundDTO)
+        {
+            var newGroup = mapper.Map<Group>(groupInboundDTO);
+            await dbContext.Groups.AddAsync(newGroup);
+            await dbContext.SaveChangesAsync();
+            return CreatedAtRoute("addGroup", newGroup);
         }
 
 
