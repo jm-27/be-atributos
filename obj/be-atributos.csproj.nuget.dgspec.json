@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Proyectos\\AE\\be-atributos\\be-atributos\\be-atributos.csproj": {}
+    "C:\\repo\\be-atributos\\be-atributos.csproj": {}
   },
   "projects": {
-    "C:\\Proyectos\\AE\\be-atributos\\be-atributos\\be-atributos.csproj": {
+    "C:\\repo\\be-atributos\\be-atributos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Proyectos\\AE\\be-atributos\\be-atributos\\be-atributos.csproj",
+        "projectUniqueName": "C:\\repo\\be-atributos\\be-atributos.csproj",
         "projectName": "be-atributos",
-        "projectPath": "C:\\Proyectos\\AE\\be-atributos\\be-atributos\\be-atributos.csproj",
+        "projectPath": "C:\\repo\\be-atributos\\be-atributos.csproj",
         "packagesPath": "C:\\Users\\jm\\.nuget\\packages\\",
-        "outputPath": "C:\\Proyectos\\AE\\be-atributos\\be-atributos\\obj\\",
+        "outputPath": "C:\\repo\\be-atributos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jm\\AppData\\Roaming\\NuGet\\NuGet.Config",

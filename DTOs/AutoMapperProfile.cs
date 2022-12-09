@@ -7,7 +7,8 @@ namespace be_atributos.DTOs
     {
         public AutoMapperProfile() { 
         
-            CreateMap<Group, GroupOutboundDTO>();   
+            CreateMap<Group, GroupOutboundDTO>();
+            CreateMap<TeacherInboundDTO, Teacher>();
 
         }
     }

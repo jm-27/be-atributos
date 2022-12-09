@@ -11,5 +11,7 @@ namespace be_atributos.Models
 
         public DbSet<Group> Groups { get; set; }
 
+        public DbSet<Teacher> Teachers { get; set; }
+
     }
 }
