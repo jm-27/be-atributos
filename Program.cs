@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 
 //adding db context - entity framework
 builder.Services.AddDbContext<MyDBContext>(options =>
-    options.UseSqlServer("name=ConnectionStrings:DefaultConnection")
+    options.UseSqlServer("name=ConnectionStrings:LocalServerConnection")
 );
 
 builder.Services.AddAutoMapper(typeof(Program));

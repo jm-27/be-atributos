@@ -2,6 +2,7 @@
 using be_atributos.DTOs;
 using be_atributos.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace be_atributos.Controllers
 {
@@ -26,6 +27,18 @@ namespace be_atributos.Controllers
             await dbContext.SaveChangesAsync();
             return Ok(newTeacher);
 
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<TeacherOutboundDTO>>> getAllTeachers()
+        {
+            List<Teacher> teacherList = await dbContext.Teachers.Include(e => e.Groups).ToListAsync();
+            if (teacherList != null)
+            {
+                var teacherOutbound = mapper.Map<List<TeacherOutboundDTO>>(teacherList);
+                return Ok(teacherOutbound);
+            }
+            return Ok("No items.");
         }
 
 

@@ -4,6 +4,10 @@ namespace be_atributos.Models
 {
     public class Teacher
     {
+        public Teacher()
+        {
+            this.Groups = new HashSet<Group>();
+        }
         public int TeacherId { get; set; }
         
         [Required, StringLength(50)]

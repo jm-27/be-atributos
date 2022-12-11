@@ -5,6 +5,9 @@ namespace be_atributos.DTOs
 {
     public class TeacherOutboundDTO
     {
+
+
+
         public int TeacherId { get; set; }
 
         [Required, StringLength(50)]
@@ -16,8 +19,6 @@ namespace be_atributos.DTOs
         [Required, StringLength(80)]
         public string Email { get; set; }
 
-        [Required, StringLength(50)]
-        public string Password { get; set; }
 
         public virtual ICollection<Group> Groups { get; set; }
     }
