@@ -33,7 +33,7 @@ namespace be_atributos.Controllers
         public async Task<ActionResult<List<TeacherOutboundDTO>>> getAllTeachers()
         {
             List<Teacher> teacherList = await dbContext.Teachers.Include(e => e.Groups).ToListAsync();
-            if (teacherList != null)
+            if (teacherList.Count > 0)
             {
                 var teacherOutbound = mapper.Map<List<TeacherOutboundDTO>>(teacherList);
                 return Ok(teacherOutbound);

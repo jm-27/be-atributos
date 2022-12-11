@@ -1,4 +1,5 @@
 using be_atributos.Models;
+using beatributos.Migrations;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -13,8 +14,12 @@ builder.Services.AddSwaggerGen();
 
 //adding db context - entity framework
 builder.Services.AddDbContext<MyDBContext>(options =>
-    options.UseSqlServer("name=ConnectionStrings:LocalServerConnection")
+    options.UseSqlServer("name=ConnectionStrings:LocalDBConnection")
 );
+
+builder.Services.AddDbContext<MyDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDBConnection"))
+); ;
 
 builder.Services.AddAutoMapper(typeof(Program));
 

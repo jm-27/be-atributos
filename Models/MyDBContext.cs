@@ -3,10 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace be_atributos.Models
 {
-    public class MyDBContext : IdentityDbContext    
+    public class MyDBContext : DbContext    
     {
+        
+
         public MyDBContext(DbContextOptions options):base(options)
         {
+        
         }
 
         public DbSet<Group> Groups { get; set; }

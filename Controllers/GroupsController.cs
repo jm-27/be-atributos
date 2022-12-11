@@ -3,6 +3,8 @@ using be_atributos.DTOs;
 using be_atributos.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using System.ComponentModel.Design;
 using System.Runtime.CompilerServices;
 
 namespace be_atributos.Controllers
@@ -11,10 +13,11 @@ namespace be_atributos.Controllers
     [Route("/api/groups")]
     public class GroupsController : Controller
     {
-        private readonly MyDBContext dbContext;
+        private readonly MyDBContext myDBContext;
+        private readonly MyLogContext myLogContext;
         private readonly IMapper mapper;
-        public GroupsController(MyDBContext dBContext, IMapper mapper) {
-            this.dbContext= dBContext;
+        public GroupsController(DbContexts dbContexts, IMapper mapper) {
+            this.myDBContext= dbContexts[typeof(MyDBContext).ToString().Replace("Factory","")] as MyDBContext ;
             this.mapper=mapper;
         }
 
@@ -22,9 +25,13 @@ namespace be_atributos.Controllers
         [HttpGet]
         public async Task<ActionResult<List<GroupOutboundDTO>>> getGroups()
         {
-            var groupsResult =  await dbContext.Groups.ToListAsync();
-            var groupsOutboundDTO = this.mapper.Map<List<GroupOutboundDTO>>(groupsResult);            
-            return Ok(groupsOutboundDTO);
+            var groupsResult =  await myDBContext.Groups.ToListAsync();
+            if (groupsResult.Count > 0)
+            {
+                var groupsOutboundDTO = this.mapper.Map<List<GroupOutboundDTO>>(groupsResult);
+                return Ok(groupsOutboundDTO);
+            }
+            return Ok("No Items.");
         }
 
         [HttpPost]
@@ -32,8 +39,8 @@ namespace be_atributos.Controllers
         public async Task<ActionResult<Group>> postGroup(GroupInboundDTO groupInboundDTO)
         {
             var newGroup = mapper.Map<Group>(groupInboundDTO);
-            await dbContext.Groups.AddAsync(newGroup);
-            await dbContext.SaveChangesAsync();
+            await myDBContext.Groups.AddAsync(newGroup);
+            await myDBContext.SaveChangesAsync();
             return CreatedAtRoute("addGroup", newGroup);
         }
 
