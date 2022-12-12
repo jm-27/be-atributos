@@ -17,7 +17,8 @@ namespace be_atributos.Controllers
         private readonly MyLogContext myLogContext;
         private readonly IMapper mapper;
         public GroupsController(DbContexts dbContexts, IMapper mapper) {
-            this.myDBContext= dbContexts[typeof(MyDBContext).ToString().Replace("Factory","")] as MyDBContext ;
+            var demo = dbContexts;
+            this.myDBContext= dbContexts[typeof(MyDBContextFactory).ToString()] as MyDBContext ;
             this.mapper=mapper;
         }
 

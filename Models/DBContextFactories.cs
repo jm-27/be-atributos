@@ -28,6 +28,7 @@ namespace be_atributos.Models
     }
 
     public class DbContexts
+
     {
         private Dictionary<string,IDBContext> _dbContextFactories = 
             new Dictionary<string, IDBContext>();
@@ -47,4 +48,8 @@ namespace be_atributos.Models
         }
         public DbContext this[string index] => _dbContextFactories[index].dbContext;
     }
+
+
+
+
 }
