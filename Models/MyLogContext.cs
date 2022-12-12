@@ -22,6 +22,6 @@ namespace be_atributos.Models
                 .HasMaxLength(100);
         }
 
-        public DbSet<AppLog> appLogs;  
+        public DbSet<AppLog> appLogs { get; set; }  
     }
 }

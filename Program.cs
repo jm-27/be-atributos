@@ -13,15 +13,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //adding db context - entity framework
-builder.Services.AddDbContext<DbContext>(options =>
-    options.UseSqlServer("name=ConnectionStrings:LocalDBConnection")
+builder.Services.AddDbContext<MyDBContext>(options =>
+    options.UseSqlServer("name=ConnectionStrings:LocalServerConnection")
 );
 
-//builder.Services.AddScoped<>
-
-//builder.Services.AddDbContext<MyDBContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDBConnection"))
-//);
+builder.Services.AddDbContext<MyLogContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalServerConnection"))
+);
 
 builder.Services.AddAutoMapper(typeof(Program));
 
@@ -33,6 +31,8 @@ builder.Services.AddCors(opciones =>
     });
 });
 
+
+//builder.Services.AddScoped<>
 
 var app = builder.Build();
 

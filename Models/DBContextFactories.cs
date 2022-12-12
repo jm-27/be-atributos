@@ -8,13 +8,13 @@ namespace be_atributos.Models
         DbContext dbContext { get; }
     }
 
-    public class MyDBContextFactory: IDBContext     
+    public class MyDBContextFactory: IDBContext
     {
         public DbContext dbContext { get; }
 
         public MyDBContextFactory(MyDBContext dbContext)
         {
-            this.dbContext= dbContext;
+            this.dbContext = dbContext;
         }
     }
 
